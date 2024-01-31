@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Homestays</title>
+</head>
+<body>
+<h1>List Homestays</h1>
+<form th:action="@{/homestays/search}">
+    <input type="text" name="city">
+    <button type="submit">Search</button>
+</form>
+<button><a th:href="@{/homestays/add-homestay}">Create</a></button>
+<table border="1px">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>City</td>
+        <td>NumberRoom</td>
+        <td>Price</td>
+        <td>NumberWc</td>
+        <td>Details</td>
+        <td>Action</td>
+    </tr>
+    <tr th:each="homestay : ${homestayslist}">
+        <th th:text="${homestay.id}"></th>
+        <td th:text="${homestay.name}"></td>
+        <td th:text="${homestay.city}"></td>
+        <td th:text="${homestay.numberRoom}"></td>
+        <td th:text="${homestay.price}"></td>
+        <td th:text="${homestay.numberWC}"></td>
+        <td th:text="${homestay.details}"></td>
+        <td>
+            <button><a th:href="@{'/homestays/edit/' + ${homestay.id}}">Edit</a></button>
+            <button><a th:href="@{'/homestays/delete/' + ${homestay.id}}">Delete</a></button>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

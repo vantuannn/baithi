@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List homestays</title>
+</head>
+<body>
+<h1>Create homestays form</h1>
+<button><a th:href="@{/homestays}">Back to list</a></button>
+<div>
+    <form action="/homestays/create" method="post" th:object="${homestay}">
+        <input type="text" th:field="*{name}" placeholder="Name...">
+        <br>
+        <input type="text" th:field="*{city}" placeholder="City...">
+        <br>
+        <input type="text" th:field="*{numberRoom}" placeholder="NumberRoom...">
+        <br>
+        <input type="text" th:field="*{price}" placeholder="Price...">
+        <br>
+        <input type="text" th:field="*{numberWC}" placeholder="NumberWC...">
+        <br>
+        <input type="text" th:field="*{details}" placeholder="Details...">
+        <br>
+        <button type="submit">Create</button>
+    </form>
+</div>
+</body>
+</html>
